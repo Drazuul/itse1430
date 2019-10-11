@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29215.179
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterCreator.Winforms", "CharacterCreator.Winforms\CharacterCreator.Winforms.csproj", "{A69EFC15-F13A-422B-A049-26438CD9D978}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CharacterCreator", "CharacterCreator\CharacterCreator.csproj", "{8EB7D89F-DD4D-4926-8574-1524BEAC9E39}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A69EFC15-F13A-422B-A049-26438CD9D978}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A69EFC15-F13A-422B-A049-26438CD9D978}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A69EFC15-F13A-422B-A049-26438CD9D978}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A69EFC15-F13A-422B-A049-26438CD9D978}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8EB7D89F-DD4D-4926-8574-1524BEAC9E39}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8EB7D89F-DD4D-4926-8574-1524BEAC9E39}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8EB7D89F-DD4D-4926-8574-1524BEAC9E39}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8EB7D89F-DD4D-4926-8574-1524BEAC9E39}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {BC5DBBAA-B7B4-447E-961B-773E7631712F}
+	EndGlobalSection
+EndGlobal

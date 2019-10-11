@@ -1,12 +1,12 @@
-﻿using System;
-
-// Jacob Ivey
+﻿// Jacob Ivey
 // Lab1 Maze
 // ITSE 1430
 //
 // Concept for the maze borrowed from Star Wars freighter 
 // MY MAP - https://i.gyazo.com/6ab2e5290089cd389ea02717d9023176.png
 // ORIGINAL FREIGHTER MAP - https://vignette.wikia.nocookie.net/starwars/images/d/d5/Dynamic-class.png/revision/latest?cb=20080330025657
+
+using System;
 
 namespace Itse1430.Maze
 {
@@ -63,8 +63,6 @@ namespace Itse1430.Maze
             Console.WriteLine ("You are facing " + (Direction)currentDirection + ".");
         }
 
-
-
         static Command CommandHandler ()
         {
             while (true)
@@ -111,8 +109,6 @@ namespace Itse1430.Maze
                 }
             }
         }
-
-
 
         static string CommandValidation ()
         {
@@ -520,7 +516,6 @@ namespace Itse1430.Maze
             Console.WriteLine (roomDescription);
             DisplayDirection ();
 
-
             while (true)
             {
                 Command command = CommandHandler ();
@@ -558,8 +553,7 @@ namespace Itse1430.Maze
             Console.WriteLine ("------------------------" + roomName + "-----------------------");
             Console.WriteLine (roomDescription);
             DisplayDirection ();
-
-
+            
             while (true)
             {
                 Command command = CommandHandler ();
@@ -584,7 +578,6 @@ namespace Itse1430.Maze
                         Console.WriteLine ("That is a wall. you cant walk into a wall.");
                         break;
                     }
-
                 }
             }
         }
@@ -597,7 +590,6 @@ namespace Itse1430.Maze
             Console.WriteLine ("------------------------" + roomName + "-----------------------");
             Console.WriteLine (roomDescription);
             DisplayDirection ();
-
 
             while (true)
             {
@@ -623,7 +615,6 @@ namespace Itse1430.Maze
                         MainHold ();
                         return;
                     }
-
                 }
             }
         }
@@ -638,7 +629,6 @@ namespace Itse1430.Maze
             Console.WriteLine ("------------------------" + roomName + "-----------------------");
             Console.WriteLine (roomDescription);
             DisplayDirection ();
-
 
             while (true)
             {
@@ -664,7 +654,6 @@ namespace Itse1430.Maze
                         Console.WriteLine ("That is a wall. you cant walk into a wall.");
                         break;
                     }
-
                 }
             }
         }
@@ -677,7 +666,6 @@ namespace Itse1430.Maze
             Console.WriteLine ("------------------------" + roomName + "-----------------------");
             Console.WriteLine (roomDescription);
             DisplayDirection ();
-
 
             while (true)
             {
@@ -703,10 +691,10 @@ namespace Itse1430.Maze
                         HallwayThree ();
                         return;
                     }
-
                 }
             }
         }
+
         static void Cockpit ()
         {
             string roomName = "Cockpit";
@@ -721,5 +709,4 @@ namespace Itse1430.Maze
             return;
         }
     }
-
 }
