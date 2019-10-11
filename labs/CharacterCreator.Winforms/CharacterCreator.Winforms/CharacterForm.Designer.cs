@@ -42,7 +42,7 @@
             this._boxProfession = new System.Windows.Forms.ComboBox();
             this._boxRace = new System.Windows.Forms.ComboBox();
             this._txtName = new System.Windows.Forms.TextBox();
-            this._txtDesctription = new System.Windows.Forms.TextBox();
+            this._txtDescription = new System.Windows.Forms.TextBox();
             this._txtStrength = new System.Windows.Forms.TextBox();
             this._txtDexterity = new System.Windows.Forms.TextBox();
             this._txtConstitution = new System.Windows.Forms.TextBox();
@@ -199,11 +199,11 @@
             // 
             // _txtDesctription
             // 
-            this._txtDesctription.Location = new System.Drawing.Point(12, 229);
-            this._txtDesctription.Multiline = true;
-            this._txtDesctription.Name = "_txtDesctription";
-            this._txtDesctription.Size = new System.Drawing.Size(462, 136);
-            this._txtDesctription.TabIndex = 19;
+            this._txtDescription.Location = new System.Drawing.Point(12, 229);
+            this._txtDescription.Multiline = true;
+            this._txtDescription.Name = "_txtDesctription";
+            this._txtDescription.Size = new System.Drawing.Size(462, 136);
+            this._txtDescription.TabIndex = 19;
             // 
             // _txtStrength
             // 
@@ -292,7 +292,7 @@
             this.Controls.Add(this._txtConstitution);
             this.Controls.Add(this._txtDexterity);
             this.Controls.Add(this._txtStrength);
-            this.Controls.Add(this._txtDesctription);
+            this.Controls.Add(this._txtDescription);
             this.Controls.Add(this._txtName);
             this.Controls.Add(this._boxRace);
             this.Controls.Add(this._boxProfession);
@@ -335,7 +335,7 @@
         private System.Windows.Forms.ComboBox _boxProfession;
         private System.Windows.Forms.ComboBox _boxRace;
         private System.Windows.Forms.TextBox _txtName;
-        private System.Windows.Forms.TextBox _txtDesctription;
+        private System.Windows.Forms.TextBox _txtDescription;
         private System.Windows.Forms.TextBox _txtStrength;
         private System.Windows.Forms.TextBox _txtDexterity;
         private System.Windows.Forms.TextBox _txtConstitution;

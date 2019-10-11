@@ -30,7 +30,7 @@ namespace CharacterCreator.Winforms
             if (Character != null)
             {
                 _txtName.Text = Character.Name;
-                _txtDesctription.Text = Character.Description;
+                _txtDescription.Text = Character.Description;
                 _boxProfession.Text = Character.Profession;
                 _boxRace.Text = Character.Race;
 
@@ -68,7 +68,7 @@ namespace CharacterCreator.Winforms
 
             var character = new Character ();
             character.Name = _txtName.Text;
-            character.Description = _txtDesctription.Text;
+            character.Description = _txtDescription.Text;
             character.Profession = _boxProfession.Text;
             character.Race = _boxRace.Text;
 
