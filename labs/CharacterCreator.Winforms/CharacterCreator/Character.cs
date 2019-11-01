@@ -4,6 +4,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -11,9 +12,12 @@ using System.Threading.Tasks;
 namespace CharacterCreator
 {
     /// <summary> Character Data </summary>
-    public class Character
+    public class Character : IValidatableObject
+
     {
         #region Properties
+
+        public int Id { get; set; }
 
         /// <summary> gets or sets character's name </summary>
         public string Name
@@ -59,31 +63,29 @@ namespace CharacterCreator
 
         /// <summary>Validates the character.</summary>
         /// <returns>An error message if validation fails or empty string otherwise.</returns>
-        public string Validate ()
+        public IEnumerable<ValidationResult> Validate ( ValidationContext validationContext )
         {
-            var attributeError = "All attributes must be a number between 1 and 20.";
+            ValidationResult attributeError = new ValidationResult("All attributes must be a number between 1 and 20.");
 
             if (String.IsNullOrEmpty (Name))
-                return "Name required";
+                yield return new ValidationResult( "Name required");
             if (String.IsNullOrEmpty (Profession))
-                return "Profession Required";
+                yield return new ValidationResult ("Profession Required");
             if (String.IsNullOrEmpty (Race))
-                return "Race required";
+                yield return new ValidationResult ("Race required");
 
             if (Strength < 1 || Strength > 20)
-                return attributeError;
+                yield return attributeError;
             if (Dexterity < 1 || Dexterity > 20)
-                return attributeError;
+                yield return attributeError;
             if (Constitution < 1 || Constitution > 20)
-                return attributeError;
+                yield return attributeError;
             if (Intelligence < 1 || Intelligence > 20)
-                return attributeError;
+                yield return attributeError;
             if (Wisdom < 1 || Wisdom > 20)
-                return attributeError;
+                yield return attributeError;
             if (Charisma < 1 || Charisma > 20)
-                return attributeError;
-
-            return "";
+                yield return attributeError;
         }
 
         #region Private Members

@@ -21,13 +21,22 @@ namespace CharacterCreator.Winforms
             InitializeComponent ();
         }
 
+        protected override void OnLoad ( EventArgs e )
+        {
+            base.OnLoad (e);
+
+            _characters = new MemoryCharacterRoster ();            
+
+            UpdateUI ();
+        }
+
         private void OnCharacterNew ( object sender, EventArgs e )
         {
             var form = new CharacterForm ();
 
             if (form.ShowDialog (this)==DialogResult.OK)
             {
-                AddCharacter (form.Character);
+                _characters.Add (form.Character);
                 UpdateUI ();
             }            
         }
@@ -43,7 +52,7 @@ namespace CharacterCreator.Winforms
             if (result != DialogResult.Yes)
                 return;
 
-            RemoveCharacter (character);
+            _characters.Remove (character.Id);
             UpdateUI ();
         }
 
@@ -59,8 +68,7 @@ namespace CharacterCreator.Winforms
 
             if (form.ShowDialog (this) == DialogResult.OK)
             {
-                RemoveCharacter (character);
-                AddCharacter (form.Character);
+                _characters.Update (character.Id, form.Character);
                 UpdateUI ();
             };
         }
@@ -84,50 +92,50 @@ namespace CharacterCreator.Winforms
 
         private void UpdateUI ()
         {
-            var character = GetCharacters ();
-            _listCharacters.DataSource = character;
+            var characters = _characters.GetAll ();
+            _listCharacters.DataSource = characters.ToArray();
         }
 
-        private void AddCharacter ( Character character )
-        {
-            for (var index = 0;index < _characters.Length; index++)
-            {
-                if (_characters[index] == null)
-                {
-                    _characters[index] = character;
-                    return;
-                };
-            };
-        }
+        //private void AddCharacter ( Character character )
+        //{
+        //    for (var index = 0;index < _characters.Length; index++)
+        //    {
+        //        if (_characters[index] == null)
+        //        {
+        //            _characters[index] = character;
+        //            return;
+        //        };
+        //    };
+        //}
 
-        private void RemoveCharacter ( Character character )
-        {
-            for (var index = 0; index < _characters.Length; ++index)
-            {
-                if (_characters[index] == character)
-                {
-                    _characters[index] = null;
-                    return;
-                };
-            };
-        }
+        //private void RemoveCharacter ( Character character )
+        //{
+        //    for (var index = 0; index < _characters.Length; ++index)
+        //    {
+        //        if (_characters[index] == character)
+        //        {
+        //            _characters[index] = null;
+        //            return;
+        //        };
+        //    };
+        //}
 
-        private Character[] GetCharacters()
-        {
-            var count = 0;
-            foreach (var character in _characters)
-                if (character != null)
-                    ++count;
+        //private Character[] GetCharacters()
+        //{
+        //    var count = 0;
+        //    foreach (var character in _characters)
+        //        if (character != null)
+        //            ++count;
 
-            var index = 0;
-            var characters = new Character[count];
-            foreach (var character in _characters)
-                if (character != null)
-                    characters[index++] = character;
+        //    var index = 0;
+        //    var characters = new Character[count];
+        //    foreach (var character in _characters)
+        //        if (character != null)
+        //            characters[index++] = character;
 
-            return characters;
-        }
+        //    return characters;
+        //}
 
-        private Character[] _characters = new Character[100];
+        private ICharacterRoster _characters;
     }
 }

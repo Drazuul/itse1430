@@ -5,6 +5,7 @@
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.DataAnnotations;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -44,13 +45,6 @@ namespace CharacterCreator.Winforms
 
             if (Character == null)
             {
-                //_txtStrength.Text = "10";
-                //_txtDexterity.Text = "10";
-                //_txtConstitution.Text = "10";
-                //_txtIntelligence.Text = "10";
-                //_txtWisdom.Text = "10";
-                //_txtCharisma.Text = "10";
-
                 var character = new Character ();
                 _txtStrength.Text = character.Strength.ToString ();
                 _txtDexterity.Text = character.Dexterity.ToString ();
@@ -66,25 +60,21 @@ namespace CharacterCreator.Winforms
             if (!ValidateChildren ())
                 return;
 
-            var character = new Character ();
-            character.Name = _txtName.Text;
-            character.Description = _txtDescription.Text;
-            character.Profession = _boxProfession.Text;
-            character.Race = _boxRace.Text;
+            var character = new Character () {
+                Name = _txtName.Text,
+                Description = _txtDescription.Text,
+                Profession = _boxProfession.Text,
+                Race = _boxRace.Text,
 
-            character.Strength = GetAsInt32 (_txtStrength);
-            character.Dexterity = GetAsInt32 (_txtDexterity);
-            character.Constitution = GetAsInt32 (_txtConstitution);
-            character.Intelligence = GetAsInt32 (_txtIntelligence);
-            character.Wisdom = GetAsInt32 (_txtWisdom);
-            character.Charisma = GetAsInt32 (_txtCharisma);
+                Strength = GetAsInt32 (_txtStrength),
+                Dexterity = GetAsInt32 (_txtDexterity),
+                Constitution = GetAsInt32 (_txtConstitution),
+                Intelligence = GetAsInt32 (_txtIntelligence),
+                Wisdom = GetAsInt32 (_txtWisdom),
+                Charisma = GetAsInt32 (_txtCharisma), };
 
-            var message = character.Validate ();
-            if (!String.IsNullOrEmpty (message))
-            {
-                MessageBox.Show (this, message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            if (!Validate (character))
                 return;
-            };
 
             Character = character;
 
@@ -96,6 +86,22 @@ namespace CharacterCreator.Winforms
         {
             DialogResult = DialogResult.Cancel;
             Close ();
+        }
+        private bool Validate ( IValidatableObject character )
+        {
+            var results = ObjectValidator.TryValidateObject (character);
+            if (results.Count () > 0)
+            {
+                foreach (var result in results)
+                {
+                    MessageBox.Show (this, result.ErrorMessage,
+                                    "Error", MessageBoxButtons.OK,
+                                    MessageBoxIcon.Error);
+                };
+                return false;
+            };
+
+            return true;
         }
 
         private int GetAsInt32 ( TextBox control )
