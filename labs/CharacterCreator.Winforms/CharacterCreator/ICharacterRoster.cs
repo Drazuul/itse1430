@@ -2,11 +2,9 @@
 //ITSE 1430
 //Character Creator
 
-using System;
+
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 
 namespace CharacterCreator
 {
@@ -35,8 +33,5 @@ namespace CharacterCreator
         /// <param name="id"> Id of the character </param>
         /// <param name="character"> Updated character </param>
         void Update ( int id, Character character );
-
-
-
     }
 }

@@ -4,9 +4,6 @@
 
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CharacterCreator
 {
@@ -34,8 +31,7 @@ namespace CharacterCreator
 
             return character != null ? Clone (new Character (), character) : null;
         }
-
-
+        
         protected override void RemoveCore ( int id )
         {
             var character = FindCharacter (id);

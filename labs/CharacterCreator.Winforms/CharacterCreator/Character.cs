@@ -13,7 +13,6 @@ namespace CharacterCreator
 {
     /// <summary> Character Data </summary>
     public class Character : IValidatableObject
-
     {
         #region Properties
 

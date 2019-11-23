@@ -2,11 +2,8 @@
 //ITSE 1430
 //Character Creator
 
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CharacterCreator
 {
@@ -44,8 +41,7 @@ namespace CharacterCreator
 
         public IEnumerable<Character> GetAll ()
             => GetAllCore ();
-       
-
+        
         public void Update ( int id, Character character )
         {
             if (id <= 0)
@@ -53,9 +49,9 @@ namespace CharacterCreator
             if (character == null)
                 return;
 
-             var results = ObjectValidator.TryValidateObject (character);
-             if (results.Count () > 0)
-                 return;
+            var results = ObjectValidator.TryValidateObject (character);
+            if (results.Count () > 0)
+                return;
 
             var existing = GetByNameCore (character.Name);
             if (existing != null)
@@ -63,10 +59,7 @@ namespace CharacterCreator
 
             UpdateCore (id, character);
         }
-
-
-
-
+        
         protected abstract Character AddCore ( Character character );
 
         protected abstract Character GetCore ( int id );
